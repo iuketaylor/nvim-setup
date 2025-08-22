@@ -46,3 +46,14 @@ vim.api.nvim_set_hl(0, "Conditional", { link = "Keyword" })
 vim.keymap.set("n", "<leader>ld", function ()
   require("lazydocker").toggle()
 end)
+
+-- File Explorer
+vim.keymap.set('n', '<leader>e', function()
+  -- Check if current buffer is netrw
+  if vim.bo.filetype == 'netrw' then
+    vim.cmd('bd')  -- Close netrw buffer
+  else
+    vim.cmd('Explore')  -- Open explorer
+  end
+end, { desc = 'Toggle file explorer' })
+

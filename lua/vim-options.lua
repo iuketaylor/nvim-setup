@@ -5,7 +5,7 @@ vim.cmd("set softtabstop=2")
 vim.cmd("set shiftwidth=2")
 vim.cmd("set number")
 vim.cmd("set relativenumber")
-vim.g.mapleader= " "
+vim.g.mapleader = " "
 
 -- Better indentation keymaps
 vim.keymap.set('v', '<', '<gv', { desc = 'Indent left and reselect' })
@@ -43,17 +43,17 @@ vim.api.nvim_create_autocmd("ColorScheme", {
 vim.api.nvim_set_hl(0, "Conditional", { link = "Keyword" })
 
 -- LazyDocker bindings
-vim.keymap.set("n", "<leader>ld", function ()
+vim.keymap.set("n", "<leader>ld", function()
   require("lazydocker").toggle()
 end)
 
--- File Explorer
-vim.keymap.set('n', '<leader>e', function()
-  -- Check if current buffer is netrw
-  if vim.bo.filetype == 'netrw' then
-    vim.cmd('bd')  -- Close netrw buffer
-  else
-    vim.cmd('Explore')  -- Open explorer
-  end
-end, { desc = 'Toggle file explorer' })
-
+-- -- File Explorer
+-- vim.keymap.set('n', '<leader>e', function()
+--     -- Check if current buffer is netrw
+--     if vim.bo.filetype == 'netrw' then
+--         vim.cmd('bd')      -- Close netrw buffer
+--     else
+--         vim.cmd('Explore') -- Open explorer
+--     end
+-- end, { desc = 'Toggle file explorer' })
+vim.keymap.set("n", "<leader>e", "<CMD>Oil --float<CR>", { desc = "Open oil" })

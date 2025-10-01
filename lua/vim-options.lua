@@ -45,7 +45,7 @@ vim.api.nvim_set_hl(0, "Conditional", { link = "Keyword" })
 -- LazyDocker bindings
 vim.keymap.set("n", "<leader>ld", function()
   require("lazydocker").toggle()
-end)
+end, { desc = "LazyDocker" })
 
 -- -- File Explorer
 -- vim.keymap.set('n', '<leader>e', function()
@@ -57,3 +57,9 @@ end)
 --     end
 -- end, { desc = 'Toggle file explorer' })
 vim.keymap.set("n", "<leader>e", "<CMD>Oil --float<CR>", { desc = "Open oil" })
+
+-- Auto-reload files changed outside of Neovim
+vim.o.autoread = true
+vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter", "CursorHold", "CursorHoldI" }, {
+  command = "checktime",
+})

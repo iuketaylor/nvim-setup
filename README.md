@@ -41,31 +41,6 @@ A modern, minimalist Neovim configuration built with [Lazy.nvim](https://github.
 - `<` / `>` (in visual mode) - Indent left/right and reselect
 - Auto-highlight yanked text
 
-## 📁 Structure
-
-```
-~/.config/nvim/
-├── init.lua                    # Main configuration entry point
-├── lazy-lock.json             # Plugin version lock file
-├── lua/
-│   ├── vim-options.lua        # Core Vim settings and keymaps
-│   └── plugins/               # Plugin configurations
-│       ├── autopairs.lua      # Auto-closing brackets/quotes
-│       ├── completions.lua    # Autocompletion setup
-│       ├── diagnostics.lua    # LSP diagnostics configuration
-│       ├── lazydocker.lua     # Docker management
-│       ├── lazygit.lua        # Git interface
-│       ├── lsp-config.lua     # Language server setup
-│       ├── lualine.lua        # Status line
-│       ├── oil.lua            # File explorer
-│       ├── render-markdown.lua # Markdown rendering
-│       ├── telescope.lua      # Fuzzy finder
-│       ├── theme.lua          # Color scheme
-│       ├── tmux-navigator.lua # Tmux integration
-│       └── treesitter.lua     # Syntax highlighting
-└── README.md                  # This file
-```
-
 ## 🎨 Customization
 
 ### Adding New Plugins

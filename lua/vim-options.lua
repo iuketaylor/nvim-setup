@@ -7,6 +7,9 @@ vim.cmd("set number")
 vim.cmd("set relativenumber")
 vim.g.mapleader = " "
 
+-- Save without formatting
+vim.keymap.set("n", "<leader>w", "<cmd>noautocmd w<cr>", { desc = "Save without formatting" })
+
 -- Better indentation keymaps
 vim.keymap.set('v', '<', '<gv', { desc = 'Indent left and reselect' })
 vim.keymap.set('v', '>', '>gv', { desc = 'Indent right and reselect' })

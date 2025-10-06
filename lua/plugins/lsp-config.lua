@@ -17,19 +17,28 @@ return {
     "neovim/nvim-lspconfig",
     lazy = false,
     config = function()
-      local lspconfig = require("lspconfig")
-
       -- Lua LSP
-      lspconfig.lua_ls.setup({})
+      vim.lsp.config("lua_ls", {
+        cmd = { "lua-language-server" },
+        filetypes = { "lua" },
+        root_markers = { ".luarc.json", ".luarc.jsonc", ".luacheckrc", ".stylua.toml", "stylua.toml", "selene.toml", "selene.yml", ".git" },
+      })
 
       -- TypeScript LSP with formatting disabled (Biome will handle formatting)
-      lspconfig.ts_ls.setup({
+      vim.lsp.config("ts_ls", {
+        cmd = { "typescript-language-server", "--stdio" },
+        filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
+        root_markers = { "tsconfig.json", "jsconfig.json", "package.json", ".git" },
         on_attach = function(client, bufnr)
           -- Disable formatting capabilities since we'll use Biome
           client.server_capabilities.documentFormattingProvider = false
           client.server_capabilities.documentRangeFormattingProvider = false
         end,
       })
+
+      -- Enable the LSP servers
+      vim.lsp.enable("lua_ls")
+      vim.lsp.enable("ts_ls")
 
       -- Global LSP keymaps
       vim.keymap.set("n", "K", vim.lsp.buf.hover, {})

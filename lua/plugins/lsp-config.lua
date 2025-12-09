@@ -57,6 +57,8 @@ return {
 				typescriptreact = { "biome" },
 				json = { "biome" },
 				jsonc = { "biome" },
+				yaml = { "prettier" },
+				yml = { "prettier" },
 			},
 			format_on_save = {
 				timeout_ms = 500,
